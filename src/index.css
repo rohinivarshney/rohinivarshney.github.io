@@ -1,0 +1,139 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Palette: Midnight Violet #331E36, Indigo Velvet #41337A,
+       Steel Blue #6EA4BF, Frozen Water #C2EFEB, Honeydew #ECFEE8 */
+    --background: 111 60% 97%;
+    --foreground: 290 30% 14%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 290 30% 14%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 290 30% 14%;
+
+    --primary: 250 41% 34%;
+    --primary-foreground: 111 60% 97%;
+    --primary-glow: 199 40% 60%;
+
+    --secondary: 174 55% 90%;
+    --secondary-foreground: 290 30% 14%;
+
+    --muted: 174 40% 94%;
+    --muted-foreground: 290 12% 40%;
+
+    --accent: 199 40% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 52%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 250 18% 86%;
+    --input: 250 18% 88%;
+    --ring: 250 41% 34%;
+
+    --radius: 1rem;
+
+    /* Glass system */
+    --glass-bg: 0 0% 100% / 0.6;
+    --glass-border: 174 60% 80% / 0.55;
+    --glass-shadow: 290 40% 20% / 0.12;
+
+    /* Gradients */
+    --gradient-hero: radial-gradient(ellipse at top left, hsl(250 50% 55% / 0.30), transparent 55%),
+                     radial-gradient(ellipse at bottom right, hsl(199 50% 70% / 0.35), transparent 50%),
+                     radial-gradient(ellipse at center, hsl(174 60% 80% / 0.30), transparent 60%);
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
+    --gradient-accent: linear-gradient(135deg, hsl(var(--accent)), hsl(174 50% 65%));
+    --gradient-text: linear-gradient(135deg, hsl(290 35% 22%), hsl(250 41% 34%), hsl(199 45% 50%));
+
+    /* Shadows */
+    --shadow-glass: 0 8px 32px 0 hsl(var(--glass-shadow));
+    --shadow-elegant: 0 20px 60px -20px hsl(250 45% 30% / 0.28);
+    --shadow-glow: 0 0 60px hsl(var(--accent) / 0.35);
+
+    --transition-smooth: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .dark {
+    --background: 290 30% 9%;
+    --foreground: 111 50% 94%;
+
+    --card: 290 28% 13%;
+    --card-foreground: 111 50% 94%;
+
+    --popover: 290 28% 13%;
+    --popover-foreground: 111 50% 94%;
+
+    --primary: 199 45% 65%;
+    --primary-foreground: 290 30% 10%;
+    --primary-glow: 174 60% 80%;
+
+    --secondary: 250 25% 20%;
+    --secondary-foreground: 111 50% 94%;
+
+    --muted: 250 22% 18%;
+    --muted-foreground: 174 25% 75%;
+
+    --accent: 174 55% 75%;
+    --accent-foreground: 290 30% 10%;
+
+    --destructive: 0 70% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 250 25% 22%;
+    --input: 250 25% 20%;
+    --ring: 199 45% 65%;
+
+    --glass-bg: 290 28% 14% / 0.6;
+    --glass-border: 174 40% 60% / 0.20;
+    --glass-shadow: 290 60% 4% / 0.6;
+
+    --gradient-hero: radial-gradient(ellipse at top left, hsl(250 50% 40% / 0.45), transparent 55%),
+                     radial-gradient(ellipse at bottom right, hsl(199 50% 45% / 0.35), transparent 50%),
+                     radial-gradient(ellipse at center, hsl(174 50% 45% / 0.25), transparent 60%);
+    --gradient-text: linear-gradient(135deg, hsl(174 70% 85%), hsl(199 60% 75%), hsl(111 50% 88%));
+    --shadow-elegant: 0 20px 60px -20px hsl(290 70% 4% / 0.75);
+  }
+
+  * { @apply border-border; }
+  html { scroll-behavior: smooth; }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "cv11", "ss01", "ss03";
+  }
+}
+
+@layer components {
+  .glass {
+    background: hsl(var(--glass-bg));
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid hsl(var(--glass-border));
+    box-shadow: var(--shadow-glass);
+  }
+  .glass-strong {
+    background: hsl(var(--glass-bg));
+    backdrop-filter: blur(32px) saturate(200%);
+    -webkit-backdrop-filter: blur(32px) saturate(200%);
+    border: 1px solid hsl(var(--glass-border));
+    box-shadow: var(--shadow-elegant);
+  }
+  .text-gradient {
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .bg-hero-gradient { background: var(--gradient-hero); }
+  .bg-gradient-primary { background: var(--gradient-primary); }
+}
+
+@layer utilities {
+  .transition-smooth { transition: var(--transition-smooth); }
+  .shadow-glow { box-shadow: var(--shadow-glow); }
+  .shadow-elegant { box-shadow: var(--shadow-elegant); }
+}
