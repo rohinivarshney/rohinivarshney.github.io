@@ -23,7 +23,7 @@ export const Hero = () => {
 
           <h1 className="font-display text-4xl sm:text-6xl lg:text-7xl leading-[1.05] tracking-tight">
             {hero.tagline} <span className="text-gradient italic">{hero.name}</span>
-            <span className="block text-2xl sm:text-3xl lg:text-4xl text-muted-foreground mt-3 not-italic">Talent Acquisition Specialist & HR Strategist</span>
+            <span className="block text-2xl sm:text-3xl lg:text-4xl text-muted-foreground mt-3 not-italic">{hero.roleTitle}</span>
           </h1>
 
           <p className="text-lg sm:text-xl text-muted-foreground max-w-xl leading-relaxed">

@@ -32,9 +32,11 @@ jobs:
 
       - name: Build
         env:
-          VITE_ADMIN_AUTH_KEY: ${{ secrets.VITE_ADMIN_AUTH_KEY }}
-          VITE_ADMIN_PASS_KEY: ${{ secrets.VITE_ADMIN_PASS_KEY }}
-          VITE_ADMIN_DEFAULT_PASS: ${{ secrets.VITE_ADMIN_DEFAULT_PASS }}
+          # Vite bakes these at build time. Use repository *secrets* (preferred for the
+          # password) or *variables* — both are supported; secrets take precedence.
+          VITE_ADMIN_AUTH_KEY: ${{ secrets.VITE_ADMIN_AUTH_KEY || vars.VITE_ADMIN_AUTH_KEY }}
+          VITE_ADMIN_PASS_KEY: ${{ secrets.VITE_ADMIN_PASS_KEY || vars.VITE_ADMIN_PASS_KEY }}
+          VITE_ADMIN_DEFAULT_PASS: ${{ secrets.VITE_ADMIN_DEFAULT_PASS || vars.VITE_ADMIN_DEFAULT_PASS }}
         run: npm run build
 
       - uses: actions/configure-pages@v4

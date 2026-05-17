@@ -193,6 +193,7 @@ const AdminApp = ({ onLogout }: { onLogout: () => void }) => {
               <Field label="Name (highlighted)" value={draft.hero.name} onChange={(v) => update("hero", { ...draft.hero, name: v })} />
               <Field label="CV file URL" value={draft.hero.cvUrl} onChange={(v) => update("hero", { ...draft.hero, cvUrl: v })} />
             </div>
+            <Field label="Role title (subtitle)" value={draft.hero.roleTitle} onChange={(v) => update("hero", { ...draft.hero, roleTitle: v })} />
             <Field label="Description" textarea rows={4} value={draft.hero.description} onChange={(v) => update("hero", { ...draft.hero, description: v })} />
             <div className="grid sm:grid-cols-4 gap-3">
               <Field label="Primary CTA label" value={draft.hero.primaryCta.label} onChange={(v) => update("hero", { ...draft.hero, primaryCta: { ...draft.hero.primaryCta, label: v } })} />
@@ -282,19 +283,17 @@ const AdminApp = ({ onLogout }: { onLogout: () => void }) => {
                     onChange={(v) => u({ tools: v.split(",").map((s) => s.trim()).filter(Boolean) })} />
                 </div>
               )} />
-            <div className="glass rounded-2xl p-5 space-y-3">
-              <div className="text-xs uppercase tracking-wider text-muted-foreground">Education</div>
-              <div className="grid sm:grid-cols-2 gap-3">
-                <Field label="Degree title" value={draft.experience.education.title}
-                  onChange={(v) => update("experience", { ...draft.experience, education: { ...draft.experience.education, title: v } })} />
-                <Field label="School & years" value={draft.experience.education.school}
-                  onChange={(v) => update("experience", { ...draft.experience, education: { ...draft.experience.education, school: v } })} />
-                <Field label="Score" value={draft.experience.education.score}
-                  onChange={(v) => update("experience", { ...draft.experience, education: { ...draft.experience.education, score: v } })} />
-                <Field label="Score label" value={draft.experience.education.scoreLabel}
-                  onChange={(v) => update("experience", { ...draft.experience, education: { ...draft.experience.education, scoreLabel: v } })} />
-              </div>
-            </div>
+            <ListEditor title="Education" items={draft.experience.education}
+              onChange={(education) => update("experience", { ...draft.experience, education })}
+              newItem={() => ({ title: "Degree or program", school: "Institution · years", score: "", scoreLabel: "" })}
+              render={(edu, u) => (
+                <div className="grid sm:grid-cols-2 gap-3">
+                  <Field label="Title" value={edu.title} onChange={(v) => u({ title: v })} />
+                  <Field label="School & years" value={edu.school} onChange={(v) => u({ school: v })} />
+                  <Field label="Score (optional)" value={edu.score ?? ""} onChange={(v) => u({ score: v })} />
+                  <Field label="Score label (optional)" value={edu.scoreLabel ?? ""} onChange={(v) => u({ scoreLabel: v })} />
+                </div>
+              )} />
           </TabsContent>
 
           <TabsContent value="services" className="space-y-5 glass-strong rounded-3xl p-6">

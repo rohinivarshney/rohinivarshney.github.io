@@ -54,18 +54,27 @@ export const Experience = () => {
           </div>
         </div>
 
-        <div className="mt-16 glass rounded-3xl p-6 sm:p-8 flex flex-col sm:flex-row gap-5 items-start sm:items-center">
-          <div className="grid h-14 w-14 place-items-center rounded-2xl bg-gradient-primary text-primary-foreground">
-            <GraduationCap className="h-6 w-6" />
-          </div>
-          <div className="flex-1">
-            <h3 className="font-display text-2xl">{experience.education.title}</h3>
-            <p className="text-muted-foreground">{experience.education.school}</p>
-          </div>
-          <div className="glass-strong rounded-2xl px-5 py-3 text-center">
-            <div className="font-display text-2xl text-gradient">{experience.education.score}</div>
-            <div className="text-xs text-muted-foreground">{experience.education.scoreLabel}</div>
-          </div>
+        <div className="mt-16 space-y-4">
+          {experience.education.map((edu, i) => (
+            <div
+              key={edu.title + i}
+              className="glass rounded-3xl p-6 sm:p-8 flex flex-col sm:flex-row gap-5 items-start sm:items-center"
+            >
+              <div className="grid h-14 w-14 place-items-center rounded-2xl bg-gradient-primary text-primary-foreground shrink-0">
+                <GraduationCap className="h-6 w-6" />
+              </div>
+              <div className="flex-1">
+                <h3 className="font-display text-2xl">{edu.title}</h3>
+                <p className="text-muted-foreground">{edu.school}</p>
+              </div>
+              {edu.score && edu.scoreLabel ? (
+                <div className="glass-strong rounded-2xl px-5 py-3 text-center shrink-0">
+                  <div className="font-display text-2xl text-gradient">{edu.score}</div>
+                  <div className="text-xs text-muted-foreground">{edu.scoreLabel}</div>
+                </div>
+              ) : null}
+            </div>
+          ))}
         </div>
       </div>
     </section>
