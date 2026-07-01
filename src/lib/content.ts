@@ -67,12 +67,12 @@ export const DEFAULT_CONTENT: SiteContent = {
     badge: "Open to recruitment & staffing opportunities",
     name: "Rohini Varshney",
     tagline: "Hi, I'm",
-    roleTitle: "Talent Acquisition Specialist · US/UK Staffing · IT Recruitment",
+    roleTitle: "Talent Acquisition Specialist · Domestic and US/UK Staffing · IT/Non-IT Recruitment",
     description:
       "I manage end-to-end hiring for IT and non-IT roles — from requirement intake and sourcing through offer negotiation and joining follow-up. Experienced in contract and permanent hiring, domestic and US/UK staffing, and high-volume lateral and bulk recruitment at enterprise and startup scale.",
     primaryCta: { label: "View Experience", href: "#experience" },
     secondaryCta: { label: "Book a Call", href: "#booking" },
-    cvUrl: "/Rohini_Varshney_TA.pdf",
+    cvUrl: "/Rohini_Varshney.pdf",
     stats: [
       { v: "6+", l: "Years in TA" },
       { v: "10+", l: "Roles / Quarter" },
@@ -138,6 +138,23 @@ export const DEFAULT_CONTENT: SiteContent = {
   experience: {
     items: [
       {
+        company: "Get Hired by Rohini",
+        role: "Human Resource Generalist",
+        period: "Jan 2026 — Present",
+        location: "Self Employed · IT & Non-IT · Domestic Staffing",
+        points: [
+            "Managed the complete recruitment lifecycle for IT and non-IT positions, including requirement gathering, candidate sourcing, screening, interview coordination, offer negotiation, and onboarding.",
+            "Handled domestic and international (US/UK) staffing for lateral, bulk, contract, and permanent hiring across multiple business functions.",
+            "Delivered high-volume hiring while consistently meeting aggressive turnaround time (TAT) targets without compromising candidate quality.",
+            "Collaborated closely with hiring managers to define role requirements, build sourcing strategies, and provide market intelligence for critical positions.",
+            "Conducted HR screening interviews to evaluate technical fit, communication skills, compensation expectations, notice period, work authorization, and overall role alignment.",
+            "Built and maintained strong candidate pipelines through Naukri, LinkedIn Recruiter, referrals, and ATS, ensuring a healthy hiring funnel.",
+            "Managed offer rollouts, candidate engagement, and post-offer follow-ups to maximize joining ratios and improve candidate experience.",
+            "Consistently achieved hiring targets by successfully closing 10+ positions per quarter while maintaining high stakeholder satisfaction and quality of hire.",
+        ],
+        tools: ["Naukri", "LinkedIn Recruiter", "ATS", "HRMS", "MS Office"],
+      },
+      {
         company: "Tech Mahindra",
         role: "Talent Acquisition Specialist",
         period: "May 2023 — Jan 2026",
@@ -186,6 +203,12 @@ export const DEFAULT_CONTENT: SiteContent = {
         title: "Strategic Talent Management: Attracting, Growing, and Retaining Employees",
         school: "Stanford Continuing Studies · Jan 2026 — Apr 2026",
         score: "In progress",
+        scoreLabel: "Coursework",
+      },
+      {
+        title: "Master of Business Administration (MBA)",
+        school: "Indira Gandhi National Open University (IGNOU), Delhi · 2019 — 2021",
+        score: "Completed",
         scoreLabel: "Coursework",
       },
       {
